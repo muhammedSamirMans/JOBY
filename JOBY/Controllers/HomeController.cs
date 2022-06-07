@@ -3,6 +3,7 @@ using JOBY.BLL.Repositories;
 using JOBY.DAL.DataContext;
 using JOBY.DAL.Entities;
 using JOBY.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace JOBY.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -64,7 +66,6 @@ namespace JOBY.Controllers
                 return Json(new { Status = 200, Message = "Your Message Sent Successfuly"});
             }
             catch { return Json(new { Status = 500, Message = "Sorry Server Error PLZ Try agian later...", Object = message }); }
-            
         }
         public IActionResult Courses()
         {

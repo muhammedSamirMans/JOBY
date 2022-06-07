@@ -1,0 +1,107 @@
+﻿@model JOBY.ViewModels.LoginVM
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JOBY-login</title>
+    <link rel="shortcut icon" type="image/x-icon" href="~/Vistiors/assets/img/favicon.ico">
+   <link rel="stylesheet" type="text/css" href="slide navbar style.css">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Vistiors/assets/css/login-style.css">
+    <link rel="stylesheet" href="~/Vistiors/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Vistiors/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Vistiors/assets/css/flaticon.css">
+    <link rel="stylesheet" href="~/Vistiors/assets/css/price_rangs.css">
+    <link rel="stylesheet" href="~/Vistiors/assets/css/slicknav.css">
+    <link rel="stylesheet" href="~/Vistiors/assets/css/animate.min.css">
+    <link rel="stylesheet" href="~/Vistiors/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/Vistiors/assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/Vistiors/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="~/Vistiors/assets/css/slick.css">
+    <link rel="stylesheet" href="~/Vistiors/assets/css/nice-select.css">
+</head>
+<body class="no-js" lang="zxx">
+    <h2> Sign in</h2>
+    <div class="container" id="container">
+        <div class="form-container sign-in-container">
+                @*<form action="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <h1>Sign in</h1>
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <span>or use your account</span>
+                    <input asp-for="Email" type="email" placeholder="Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                    <input asp-for="Password" type="password" placeholder="Password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                    <input asp-for="RememberMe" type="checkbox" class="custom-control-input">
+                    <label class="custom-control-label" asp-for="RememberMe">@Html.DisplayNameFor(m => m.RememberMe)</label>
+                    <button type="submit">Sign In</button>
+                </form>*@
+            <form method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <h1>Sign in</h1>
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                
+                    <input asp-for="Email" type="email" placeholder="Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+               
+
+                
+                    <input asp-for="Password" type="password" placeholder="Password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                
+
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                        <input asp-for="RememberMe" type="checkbox" class="custom-control-input">
+                        <label class="custom-control-label" asp-for="RememberMe">@Html.DisplayNameFor(m => m.RememberMe)</label>
+                    </div>
+
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+        </form>
+            </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                        <h1>Hello, Friend!</h1>
+                        <p>Enter your personal details and start journey with us</p>
+                        <button class="ghost" id="signUp" onclick="location.href='./Register'">Sign Up</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            Created with <i class="fa fa-heart"></i> by
+            <a target="_blank" href="https://florin-pop.com">Body Zahran.</a>
+        </p>
+    </footer>
+    <script>
+        //const signUpButton = document.getElementById('signUp');
+        //const signInButton = document.getElementById('signIn');
+        //const container = document.getElementById('container');
+
+        //signUpButton.addEventListener('click', () => {
+        //    container.classList.add("right-panel-active");
+        //});
+
+        //signInButton.addEventListener('click', () => {
+          //  container.classList.remove("right-panel-active");
+        //});
+    </script>
+</body>
+</html>
