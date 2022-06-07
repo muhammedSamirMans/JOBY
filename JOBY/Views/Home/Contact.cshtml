@@ -61,31 +61,31 @@
                 <h2 class="contact-title">Get in Touch</h2>
             </div>
             <div class="col-lg-8">
-                <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                <form class="form-contact contact_form"  id="contactForm" enctype="multipart/form-data" >
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
+                                <textarea class="form-control w-100" name="Message" id="Message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
+                                <input class="form-control valid" name="Name" id="Name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
+                                <input class="form-control valid" name="Email" id="Email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
+                                <input class="form-control" name="Subject" id="Subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
                             </div>
                         </div>
                     </div>
                     <div class="form-group mt-3">
-                        <button type="submit" class="button button-contactForm boxed-btn">Send</button>
+                        <button type="button" class="button button-contactForm boxed-btn" onclick="return Add();">Send</button>
                     </div>
                 </form>
             </div>
@@ -116,3 +116,40 @@
     </div>
 </section>
 <!-- ================ contact section end ================= -->
+@section Scripts
+{
+    <script>
+        //Add Data Function
+        function Add() {
+            debugger;
+             var messageObj = {   
+                    Id:0,
+                    Name: $('#Name').val(),  
+                    Email: $('#Email').val(),  
+                    Message: $('#Message').val(),  
+                    Subject: $('#Subject').val()  
+                };  
+            // Make your POST
+            $.ajax({
+                url: "/Home/SendContactMessage",
+                data: JSON.stringify(messageObj),  
+                type: "POST",  
+                contentType: "application/json;charset=utf-8",  
+                dataType: "json",  
+                success: function (result) {
+                    if (result.status == 200) {
+                        swal("Done", result.message, "success");
+                    }
+                    else {
+                        swal("Sorry", result.message, "error");
+                    }
+                },
+                error: function (errormessage) {
+                    swal("Sorry", errormessage.responseText, "error");
+
+                }
+            });
+        }   
+
+    </script>
+}
